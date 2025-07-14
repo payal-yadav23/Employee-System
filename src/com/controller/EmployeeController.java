@@ -86,6 +86,9 @@ public class EmployeeController {
 			default:
 				System.out.println("Invalid choice.");
 			}
+
+			sc.close();
 		}
+
 	}
 }

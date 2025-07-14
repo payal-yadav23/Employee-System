@@ -28,10 +28,14 @@ public class EmployeeDao {
 			String query = "INSERT INTO employee (empID, empName, salary, dept, mobNo, gender, Date_Of_Birth) VALUES ("
 					+ emp.getEmpID() + ",'" + emp.getEmpName() + "'," + emp.getSalary() + ",'" + emp.getDept() + "','"
 					+ emp.getMobNo() + "','" + emp.getGender() + "','" + emp.getDateOfBirth() + "')";
+
+			conn.close();
 			return stmt.executeUpdate(query);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 		return 0;
 	}
 
@@ -48,6 +52,9 @@ public class EmployeeDao {
 
 				list.add(e);
 			}
+
+			conn.close();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -64,9 +71,13 @@ public class EmployeeDao {
 						rs.getString("dept"), rs.getString("mobNo"), rs.getString("gender"),
 						rs.getString("Date_Of_Birth"));
 			}
+
+			conn.close();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
+
 }
